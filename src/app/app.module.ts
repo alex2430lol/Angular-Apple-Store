@@ -7,6 +7,7 @@ import { CustomersModule } from './customers/customers.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { MatTableModule } from '@angular/material/table';
+import { SharedModule } from './shared/shared.module';
 
 
 @NgModule({
@@ -18,7 +19,8 @@ import { MatTableModule } from '@angular/material/table';
     AppRoutingModule,
     CustomersModule,
     BrowserAnimationsModule,
-    MatTableModule
+    MatTableModule,
+    SharedModule
   ],
   providers: [AppComponent],
   bootstrap: [AppComponent]

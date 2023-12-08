@@ -2,6 +2,8 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 
+import { ICustomer } from 'src/app/shared/interfaces';
+
 @Component({
   selector: 'app-customers-list',
   templateUrl: './customers-list.component.html',
@@ -27,7 +29,7 @@ export class CustomersListComponent implements OnInit {
   ];
   dataSource: MatTableDataSource<any>;
 
-  filteredCustomers: any[] = [];
+  filteredCustomers: ICustomer [] = [];
   customersOrderTotal: number = 0;
   currencyCode: string = 'USD'
 
