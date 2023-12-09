@@ -9,6 +9,7 @@ import { ICustomer } from '../shared/interfaces';
 export class CustomersComponent implements OnInit {
   title: string;
   customers: ICustomer[];
+  isVisible: boolean = true;
 
   constructor() {
     this.title = '';
@@ -20,7 +21,7 @@ export class CustomersComponent implements OnInit {
     this.customers = [
       {
         id: 1,
-        name: 'john Doe',
+        name: 'Alex Xu',
         city: 'Phoenix',
         orderTotal: 9.99,
         customerSince: new Date(2014, 7, 10),
@@ -47,5 +48,9 @@ export class CustomersComponent implements OnInit {
         customerSince: new Date(2002, 10, 31),
       },
     ];
+  }
+
+  TogglePage() {
+    this.isVisible = !this.isVisible;
   }
 }
