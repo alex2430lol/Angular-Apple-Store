@@ -3,17 +3,19 @@ import { CustomersComponent } from "./customers.component";
 import { CommonModule } from "@angular/common";
 import { CustomersListComponent } from "./customers-list/customers-list.component";
 import { MatTableModule } from "@angular/material/table";
-import { FilterTextboxComponent } from "./customers-list/filter-textbox.component";
+import { SharedModule } from "../shared/shared.module";
+import { FormsModule } from "@angular/forms";
 
 @NgModule({
     imports: [ 
         CommonModule,
-        MatTableModule
+        MatTableModule,
+        SharedModule,
+        FormsModule
     ],
     declarations: [ 
         CustomersComponent, 
-        CustomersListComponent,
-        FilterTextboxComponent
+        CustomersListComponent
     ],
     exports: [ CustomersComponent ]
 })

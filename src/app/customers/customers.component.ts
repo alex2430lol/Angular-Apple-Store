@@ -21,21 +21,21 @@ export class CustomersComponent implements OnInit {
     this.customers = [
       {
         id: 1,
-        name: 'Alex Xu',
+        name: 'haolin Xu',
         city: 'Phoenix',
         orderTotal: 9.99,
         customerSince: new Date(2014, 7, 10),
       },
       {
         id: 2,
-        name: 'Jane Doe',
+        name: 'gxm cen',
         city: 'Chandler',
         orderTotal: 19.99,
         customerSince: new Date(2017, 2, 22),
       },
       {
         id: 3,
-        name: 'Michelle Thomas',
+        name: 'Mihayou fdsa',
         city: 'Seattle',
         orderTotal: 99.99,
         customerSince: new Date(2002, 10, 31),

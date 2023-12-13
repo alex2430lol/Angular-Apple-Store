@@ -1,7 +1,15 @@
-<filter-textbox></filter-textbox>
-<br /> 
+<h2>Table 1</h2>
+<div>
+    <label for="searchText">Search: </label>
+    <input 
+        type="text" 
+        id="_searchText" 
+        [(ngModel)]="_searchText" 
+        (ngModelChange)="filter($event)"
+        placeholder="Enter search term"
+    />
+</div>
 <div style="margin-top: 20px;">
-    <h2>Table 1</h2>
     <table class="cusTable">
         <thead>
             <tr>
@@ -13,23 +21,27 @@
             </tr>
         </thead>
         <tbody>
-            <tr *ngFor="let cus of Customers">
+            <tr *ngFor="let cus of filteredCustomers">
                 <td>{{ cus.id }}</td>
                 <td>
-                    <a> {{ cus.name }}</a>
+                    <a> {{ cus.name | capitalize }}</a>
                 </td>
                 <td>{{ cus.city }}</td>
-                <td>{{ cus.orderTotal }}</td>
-                <td>{{ cus.customerSince }}</td>
+                <td>{{ cus.orderTotal | currency:currencyCode:'symbol' }}</td>
+                <td>{{ cus.customerSince | date: 'shortDate'}}</td>
+            </tr>
+            <tr *ngIf="filteredCustomers && filteredCustomers.length">
+                <td colspan="3"></td>
+                <td> {{ customersOrderTotal | currency }} </td>
             </tr>
         </tbody>
-        <tfoot *ngIf="Customers.length == 0">
+        <tfoot *ngIf="customers.length == 0">
             <tr >
                 <td colspan="5">No Customers found.</td>
             </tr>
         </tfoot>
     </table>
-    Numbers of Customers: {{ Customers.length }}
+    Numbers of Customers: {{ filteredCustomers.length }}
 </div>
 
 <div style="margin-top: 20px;">
@@ -58,7 +70,7 @@
         
             <ng-container matColumnDef="customerSince">
                 <th mat-hearder-cell *matHeaderCellDef mat-sort-header>CustomerSince</th>
-                <td mat-cell *matCellDef="let row">{{ row.customerSince }}</td>
+                <td mat-cell *matCellDef="let row">{{ row.customerSince | date: 'yyyy-mm-dd h:mm:ss' }}</td>
             </ng-container>
         
             <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
