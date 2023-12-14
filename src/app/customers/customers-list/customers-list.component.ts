@@ -1,6 +1,7 @@
-import { Component, Input, OnInit, ViewChild } from '@angular/core';
+import { Component, Input, OnChanges, OnInit, ViewChild } from '@angular/core';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
+import { SorterService } from 'src/app/core/sorter.service';
 
 import { ICustomer } from 'src/app/shared/interfaces';
 
@@ -9,7 +10,7 @@ import { ICustomer } from 'src/app/shared/interfaces';
   templateUrl: './customers-list.component.html',
   styleUrls: ['./customers-list.component.css']
 })
-export class CustomersListComponent implements OnInit {
+export class CustomersListComponent implements OnInit, OnChanges {
   customersDataSource: MatTableDataSource<any> = new MatTableDataSource;
   private _customers: ICustomer[] = [];
   _searchText: string = '';
@@ -35,10 +36,14 @@ export class CustomersListComponent implements OnInit {
     }
   }
 
-  constructor() {
+  constructor(private sorterService: SorterService) {
+  }
+
+  ngOnInit(): void {
+
   }
   
-  ngOnInit() {
+  ngOnChanges() {
     this.customersDataSource = new MatTableDataSource(this.customers);
     //this.dataSource.sort = this.sort;
   }
@@ -51,7 +56,7 @@ export class CustomersListComponent implements OnInit {
   }
 
   sort(prop: string) {
-    // A sorter service will handle the sorting
+    this.sorterService.sort(this.filteredCustomers, prop);
   }
 
   filter(text: string) {
@@ -62,7 +67,7 @@ export class CustomersListComponent implements OnInit {
           return cus.name.toLocaleLowerCase().indexOf(text) > -1 ||
             cus.city.toLocaleLowerCase().indexOf(text) > -1 ||
             cus.orderTotal.toString().indexOf(text) > -1 ||
-            cus.customerSince.toLocaleDateString().indexOf(text) > -1
+            cus.customerSince.indexOf(text) > -1
         }
       )
     } else {

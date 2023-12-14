@@ -9,8 +9,19 @@
     box-shadow: 5px 5px 10px #888888;
 }
 
+thead {
+    background-color: rgb(220, 220, 220);
+    border: transparent;
+}
+
+th {
+    border-radius: 5px;
+}
+
 th:hover {
     cursor: pointer;
+    background-color: #c4c4c4;
+    border-radius: 5px;
 }
 
 td {

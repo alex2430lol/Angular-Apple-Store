@@ -1,26 +1,30 @@
 [
     {
           "id": 1,
-          "name": "ted James",
-          "city": " Phoenix ",
-          "orderTotal": 40.99
+          "name": "haolin Xu",
+          "city": " Plano ",
+          "orderTotal": 40.99,
+          "customerSince": "2023-11-1"
     },
     {
           "id": 2,
-          "name": "Michelle Thompson",
+          "name": "Alex aba aba",
           "city": "Los Angeles ",
-          "orderTotal": 89.99
+          "orderTotal": 89.99,
+          "customerSince": "2020-8-2"
     },
     {
           "id": 3,
-          "name": "James Thomas",
+          "name": "Gou Xiao Mai",
           "city": " Las Vegas ",
-          "orderTotal": 29.99
+          "orderTotal": 29.99,
+          "customerSince": "2022-11-1"
     },
     {
           "id": 4,
-          "name": "Tina Adams",
+          "name": "UMR UMR",
           "city": "Seattle",
-          "orderTotal": 15.99
+          "orderTotal": 15.99,
+          "customerSince": "1996-11-1"
     }
 ]

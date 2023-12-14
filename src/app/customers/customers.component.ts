@@ -19,36 +19,7 @@ export class CustomersComponent implements OnInit {
 
   ngOnInit() {
     this.title = 'Customers';
-    this.customers = [
-      {
-        id: 1,
-        name: 'haolin Xu',
-        city: 'Phoenix',
-        orderTotal: 9.99,
-        customerSince: new Date(2014, 7, 10),
-      },
-      {
-        id: 2,
-        name: 'gxm cen',
-        city: 'Chandler',
-        orderTotal: 19.99,
-        customerSince: new Date(2017, 2, 22),
-      },
-      {
-        id: 3,
-        name: 'Mihayou fdsa',
-        city: 'Seattle',
-        orderTotal: 99.99,
-        customerSince: new Date(2002, 10, 31),
-      },
-      {
-        id: 4,
-        name: 'Jim Thomas',
-        city: 'New York',
-        orderTotal: 599.99,
-        customerSince: new Date(2002, 10, 31),
-      },
-    ];
+    this.loadCustomers();
   }
 
   TogglePage() {
@@ -56,9 +27,16 @@ export class CustomersComponent implements OnInit {
   }
 
   loadCustomers() {
-    this.dataService.getCustomers().subscribe(
-      data => this.customers = data,
-      err => console.log(err)
-    )
+    // Deprecated:
+    // this.dataService.getCustomers().subscribe(
+    //   data => this.customers = data,
+    //   err => console.log(err),
+    //   () => console.log('oh yes! customers loaded!')
+    // )
+    this.dataService.getCustomers().subscribe({
+      next: (data) => this.customers = data,
+      error: (err) => console.log(err),
+      complete: () => console.log('oh yes! customers loaded!')
+    })
   }
 }
