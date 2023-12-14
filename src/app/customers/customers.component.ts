@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ICustomer } from '../shared/interfaces';
+import { DataService } from '../core/data.service';
 
 @Component({
   selector: 'app-customers',
@@ -11,7 +12,7 @@ export class CustomersComponent implements OnInit {
   customers: ICustomer[];
   isVisible: boolean = true;
 
-  constructor() {
+  constructor(private dataService: DataService) {
     this.title = '';
     this.customers = [];
   }
@@ -52,5 +53,12 @@ export class CustomersComponent implements OnInit {
 
   TogglePage() {
     this.isVisible = !this.isVisible;
+  }
+
+  loadCustomers() {
+    this.dataService.getCustomers().subscribe(
+      data => this.customers = data,
+      err => console.log(err)
+    )
   }
 }

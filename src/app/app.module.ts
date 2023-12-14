@@ -9,6 +9,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatTableModule } from '@angular/material/table';
 import { SharedModule } from './shared/shared.module';
 import { FormsModule } from '@angular/forms';
+import { CoreModule } from './core/core.module';
 
 
 @NgModule({
@@ -22,7 +23,8 @@ import { FormsModule } from '@angular/forms';
     BrowserAnimationsModule,
     MatTableModule,
     SharedModule,
-    FormsModule
+    FormsModule,
+    CoreModule
   ],
   providers: [AppComponent],
   bootstrap: [AppComponent]
