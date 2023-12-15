@@ -17,6 +17,8 @@ import { FormsModule } from "@angular/forms";
         CustomersComponent, 
         CustomersListComponent
     ],
-    exports: [ CustomersComponent ]
+    exports: [ 
+        CustomersComponent
+    ]
 })
 export class CustomersModule {}

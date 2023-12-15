@@ -10,11 +10,13 @@ import { MatTableModule } from '@angular/material/table';
 import { SharedModule } from './shared/shared.module';
 import { FormsModule } from '@angular/forms';
 import { CoreModule } from './core/core.module';
+import { NotExistComponent } from './not-exist/not-exist.component';
 
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    NotExistComponent
   ],
   imports: [
     BrowserModule,

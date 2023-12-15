@@ -22,7 +22,7 @@ export class CustomersComponent implements OnInit {
     this.loadCustomers();
   }
 
-  TogglePage() {
+TogglePage() {
     this.isVisible = !this.isVisible;
   }
 

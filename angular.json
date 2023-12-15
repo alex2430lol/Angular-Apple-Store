@@ -16,14 +16,9 @@
             "outputPath": "dist/angular-app",
             "index": "src/index.html",
             "main": "src/main.ts",
-            "polyfills": [
-              "zone.js"
-            ],
+            "polyfills": ["zone.js"],
             "tsConfig": "tsconfig.app.json",
-            "assets": [
-              "src/favicon.ico",
-              "src/assets"
-            ],
+            "assets": ["src/favicon.ico", "src/assets"],
             "styles": [
               "@angular/material/prebuilt-themes/indigo-pink.css",
               "src/styles.css"
@@ -59,12 +54,14 @@
         },
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+          },
           "configurations": {
             "production": {
-              "buildTarget": "AngularApp:build:production"
+              "browserTarget": "AngularApp:build:production"
             },
             "development": {
-              "buildTarget": "AngularApp:build:development"
+              "browserTarget": "AngularApp:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -72,21 +69,15 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "buildTarget": "AngularApp:build"
+            "browserTarget": "AngularApp:build"
           }
         },
         "test": {
           "builder": "@angular-devkit/build-angular:karma",
           "options": {
-            "polyfills": [
-              "zone.js",
-              "zone.js/testing"
-            ],
+            "polyfills": ["zone.js", "zone.js/testing"],
             "tsConfig": "tsconfig.spec.json",
-            "assets": [
-              "src/favicon.ico",
-              "src/assets"
-            ],
+            "assets": ["src/favicon.ico", "src/assets"],
             "styles": [
               "@angular/material/prebuilt-themes/indigo-pink.css",
               "src/styles.css"
