@@ -11,6 +11,7 @@ import { ICustomer } from 'src/app/shared/interfaces';
   styleUrls: ['./customers-list.component.css']
 })
 export class CustomersListComponent implements OnInit, OnChanges {
+
   customersDataSource: MatTableDataSource<any> = new MatTableDataSource;
   private _customers: ICustomer[] = [];
   _searchText: string = '';
@@ -24,7 +25,8 @@ export class CustomersListComponent implements OnInit, OnChanges {
     'orderTotal',
     'customerSince'
   ];
-  
+
+  showMaterialTable: boolean = false;
   
   @Input()  get customers(): ICustomer[] {
     return this._customers;
@@ -74,5 +76,9 @@ export class CustomersListComponent implements OnInit, OnChanges {
       this.filteredCustomers = this.customers;
     }
     this.calculateOrders();
+  }
+
+  toggleTable() {
+    this.showMaterialTable = !this.showMaterialTable;
   }
 }

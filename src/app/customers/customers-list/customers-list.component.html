@@ -1,82 +1,99 @@
-<h2>Table 1</h2>
-<div>
+<button class="ToggleTableBtn" (click)="toggleTable()">Toggle Table</button>
+<div *ngIf="!showMaterialTable">
+  <div>
     <label for="searchText">Search: </label>
-    <input 
-        type="text" 
-        id="_searchText" 
-        [(ngModel)]="_searchText" 
-        (ngModelChange)="filter($event)"
-        placeholder="Enter search term"
+    <input
+      class="searchBar"
+      type="text"
+      id="_searchText"
+      [(ngModel)]="_searchText"
+      (ngModelChange)="filter($event)"
+      placeholder=" "
     />
-</div>
-<div style="margin-top: 20px;">
+  </div>
+  <div style="margin-top: 20px">
     <table class="cusTable">
-        <thead>
-            <tr>
-                <th (click)="sort('id')">ID</th>
-                <th (click)="sort('name')">Name</th>
-                <th (click)="sort('city')">City</th>
-                <th (click)="sort('orderTotal')">Order Total</th>
-                <th (click)="sort('customerSince')">Customer Since</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr *ngFor="let cus of filteredCustomers">
-                <td>{{ cus.id }}</td>
-                <td>
-                    <a> {{ cus.name | capitalize }}</a>
-                </td>
-                <td>{{ cus.city }}</td>
-                <td>{{ cus.orderTotal | currency:currencyCode:'symbol' }}</td>
-                <td>{{ cus.customerSince | date: 'shortDate'}}</td>
-            </tr>
-            <tr *ngIf="filteredCustomers && filteredCustomers.length">
-                <td colspan="3"></td>
-                <td> {{ customersOrderTotal | currency }} </td>
-            </tr>
-        </tbody>
-        <tfoot *ngIf="customers.length == 0">
-            <tr >
-                <td colspan="5">No Customers found.</td>
-            </tr>
-        </tfoot>
+      <thead>
+        <tr>
+          <th (click)="sort('id')">ID<span class="fa fa-sort"></span></th>
+          <th (click)="sort('name')">Name <span class="fa fa-sort"> </span></th>
+          <th (click)="sort('city')">City<span class="fa fa-sort"></span></th>
+          <th (click)="sort('orderTotal')">
+            Order Total <span class="fa fa-sort"></span>
+          </th>
+          <th (click)="sort('customerSince')">
+            Customer Since <span class="fa fa-sort"></span>
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let cus of filteredCustomers">
+          <td>{{ cus.id }}</td>
+          <td>
+            <a [routerLink]="['/orders', cus.id]" class="name">
+              {{ cus.name | capitalize }}
+            </a>
+          </td>
+          <td>{{ cus.city }}</td>
+          <td>{{ cus.orderTotal | currency : currencyCode : "symbol" }}</td>
+          <td>{{ cus.customerSince | date : "shortDate" }}</td>
+        </tr>
+        <tr *ngIf="filteredCustomers && filteredCustomers.length">
+          <td colspan="3"></td>
+          <td>{{ customersOrderTotal | currency }}</td>
+        </tr>
+      </tbody>
+      <tfoot *ngIf="customers.length == 0">
+        <tr>
+          <td colspan="5">No Customers found.</td>
+        </tr>
+      </tfoot>
+      <tfoot *ngIf="filteredCustomers">
+        <tr>
+          <td colspan="5">
+            Numbers of Customers: {{ filteredCustomers.length }}
+          </td>
+        </tr>
+      </tfoot>
     </table>
-    Numbers of Customers: {{ filteredCustomers.length }}
+  </div>
 </div>
 
-<div style="margin-top: 20px;">
-    <h2>Mat Table</h2>
-    <div class="mat-elevation-z8 customers-list">
-        <table mat-table [dataSource]="customersDataSource" matSort>
-            <ng-container matColumnDef="id">
-                <th mat-hearder-cell *matHeaderCellDef mat-sort-header>Id</th>
-                <td mat-cell *matCellDef="let row">{{ row.id }}</td>
-            </ng-container>
-        
-            <ng-container matColumnDef="name">
-                <th mat-hearder-cell *matHeaderCellDef mat-sort-header>Name</th>
-                <td mat-cell *matCellDef="let row">{{ row.name }}</td>
-            </ng-container>
-            
-            <ng-container matColumnDef="city">
-                <th mat-hearder-cell *matHeaderCellDef mat-sort-header>City</th>
-                <td mat-cell *matCellDef="let row">{{ row.city }}</td>
-            </ng-container>
-        
-            <ng-container matColumnDef="orderTotal">
-                <th mat-hearder-cell *matHeaderCellDef mat-sort-header>OrderTotal</th>
-                <td mat-cell *matCellDef="let row">{{ row.orderTotal }}</td>
-            </ng-container>
-        
-            <ng-container matColumnDef="customerSince">
-                <th mat-hearder-cell *matHeaderCellDef mat-sort-header>CustomerSince</th>
-                <td mat-cell *matCellDef="let row">{{ row.customerSince | date: 'yyyy-mm-dd h:mm:ss' }}</td>
-            </ng-container>
-        
-            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-            <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-        </table>
-    </div>
+<div style="margin-top: 20px" *ngIf="showMaterialTable">
+  <h2>Mat Table</h2>
+  <div class="mat-elevation-z8 customers-list">
+    <table mat-table [dataSource]="customersDataSource" matSort>
+      <ng-container matColumnDef="id">
+        <th mat-hearder-cell *matHeaderCellDef mat-sort-header>Id</th>
+        <td mat-cell *matCellDef="let row">{{ row.id }}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="name">
+        <th mat-hearder-cell *matHeaderCellDef mat-sort-header>Name</th>
+        <td mat-cell *matCellDef="let row">{{ row.name }}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="city">
+        <th mat-hearder-cell *matHeaderCellDef mat-sort-header>City</th>
+        <td mat-cell *matCellDef="let row">{{ row.city }}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="orderTotal">
+        <th mat-hearder-cell *matHeaderCellDef mat-sort-header>OrderTotal</th>
+        <td mat-cell *matCellDef="let row">{{ row.orderTotal }}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="customerSince">
+        <th mat-hearder-cell *matHeaderCellDef mat-sort-header>
+          CustomerSince
+        </th>
+        <td mat-cell *matCellDef="let row">
+          {{ row.customerSince | date : "yyyy-mm-dd h:mm:ss" }}
+        </td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+    </table>
+  </div>
 </div>
-
-

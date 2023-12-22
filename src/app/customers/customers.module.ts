@@ -5,13 +5,17 @@ import { CustomersListComponent } from "./customers-list/customers-list.componen
 import { MatTableModule } from "@angular/material/table";
 import { SharedModule } from "../shared/shared.module";
 import { FormsModule } from "@angular/forms";
+import { RouterModule } from "@angular/router";
+import { CustomersRoutingModule } from "./customers-routing.module";
 
 @NgModule({
     imports: [ 
         CommonModule,
         MatTableModule,
         SharedModule,
-        FormsModule
+        FormsModule,
+        RouterModule,
+        CustomersRoutingModule
     ],
     declarations: [ 
         CustomersComponent, 

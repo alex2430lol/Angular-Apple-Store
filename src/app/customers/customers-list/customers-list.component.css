@@ -2,6 +2,11 @@
     width: 85%;
 }
 
+.searchBar {
+    background-color: transparent;
+    border-radius: 5px;
+}
+
 .cusTable {
     border: 1px solid black;
     border-radius: 5px;
@@ -15,6 +20,7 @@ thead {
 }
 
 th {
+    margin: 0;
     border-radius: 5px;
 }
 
@@ -26,4 +32,11 @@ th:hover {
 
 td {
     text-align: center;
+}
+
+.ToggleTableBtn {
+    margin-bottom: 10px;
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
 }

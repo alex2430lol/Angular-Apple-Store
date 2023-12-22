@@ -1,0 +1,19 @@
+
+.order {
+    text-align: center;
+}
+
+table {
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+    border: 1px solid black;
+    border-radius: 5px;
+    border-collapse: collapse;
+    
+}
+
+th, td {
+    border: 1px solid black;
+    padding: 3px;
+}

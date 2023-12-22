@@ -22,21 +22,15 @@ export class CustomersComponent implements OnInit {
     this.loadCustomers();
   }
 
-TogglePage() {
+  TogglePage() {
     this.isVisible = !this.isVisible;
   }
 
   loadCustomers() {
-    // Deprecated:
-    // this.dataService.getCustomers().subscribe(
-    //   data => this.customers = data,
-    //   err => console.log(err),
-    //   () => console.log('oh yes! customers loaded!')
-    // )
     this.dataService.getCustomers().subscribe({
       next: (data) => this.customers = data,
       error: (err) => console.log(err),
-      complete: () => console.log('oh yes! customers loaded!')
+      complete: () => console.log('Oh Yes! Customers are loaded!')
     })
   }
 }

@@ -11,6 +11,10 @@ import { SharedModule } from './shared/shared.module';
 import { FormsModule } from '@angular/forms';
 import { CoreModule } from './core/core.module';
 import { NotExistComponent } from './not-exist/not-exist.component';
+import { OrdersModule } from './orders/orders.module';
+import { RouterModule } from '@angular/router';
+import { CustomersRoutingModule } from './customers/customers-routing.module';
+import { OrdersRoutingModule } from './orders/orders-routing.module';
 
 
 @NgModule({
@@ -20,8 +24,12 @@ import { NotExistComponent } from './not-exist/not-exist.component';
   ],
   imports: [
     BrowserModule,
+    RouterModule,
     AppRoutingModule,
     CustomersModule,
+    OrdersModule,
+    CustomersRoutingModule,
+    OrdersRoutingModule,
     BrowserAnimationsModule,
     MatTableModule,
     SharedModule,
