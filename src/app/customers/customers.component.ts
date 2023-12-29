@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ICustomer } from '../shared/interfaces';
 import { DataService } from '../core/data.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-customers',
@@ -12,7 +13,10 @@ export class CustomersComponent implements OnInit {
   customers: ICustomer[];
   isVisible: boolean = true;
 
-  constructor(private dataService: DataService) {
+  constructor(
+    private dataService: DataService,
+    private router: Router
+  ) {
     this.title = '';
     this.customers = [];
   }
@@ -22,9 +26,9 @@ export class CustomersComponent implements OnInit {
     this.loadCustomers();
   }
 
-  TogglePage() {
-    this.isVisible = !this.isVisible;
-  }
+  // ReturnHome() {
+  //   this.router.navigate(['/Home'])
+  // }
 
   loadCustomers() {
     this.dataService.getCustomers().subscribe({

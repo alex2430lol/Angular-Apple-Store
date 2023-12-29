@@ -1,0 +1,24 @@
+<div class="naviBar">
+    <ul>
+        <li>
+            <a routerLink="/Home">
+                <span class="fa fa-apple"></span>
+            </a>
+        </li>
+        <li *ngFor="let item of naviItems">
+            <a routerLink="/{{item}}">
+                {{ item }}
+            </a>
+        </li>
+        <li class="whiteIcon">
+            <a>
+                <span class="fa fa-search"></span>
+            </a>
+        </li>
+        <li class="whiteIcon">
+            <a>
+                <span class="fa fa-shopping-bag"></span>
+            </a>
+        </li>
+    </ul>
+</div>

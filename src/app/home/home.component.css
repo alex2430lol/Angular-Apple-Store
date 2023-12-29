@@ -1,0 +1,54 @@
+.home {
+    overflow: hidden;
+}
+.iPhone-15Pro { 
+    background-color: rgb(0, 0, 0);
+    color: white;
+}
+
+.iPhone-15 { 
+    background-color: rgb(245, 245, 247);
+    color: black;
+}
+
+.description {
+    margin: 0;
+    padding: 0;
+    text-align: center;
+}
+
+.headline {
+    margin: 0;
+    padding: 0;
+    padding-top: 50px;
+    font-size: 60px;
+    font-weight: 500;
+}
+
+.subhead {
+    margin: 0;
+    padding-top: 10px;
+    font-weight: 400;
+}
+
+.links {
+    padding-top: 15px;
+    padding-bottom: 20px;
+    text-align: center;
+}
+
+a {
+    cursor: pointer;
+    color: #2997ff;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+.image-wrapper img{
+    width: 100%;
+    margin: 0;
+    padding: 0;
+}
+

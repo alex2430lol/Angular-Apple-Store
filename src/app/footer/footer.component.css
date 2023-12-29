@@ -1,0 +1,46 @@
+.footer {
+    position: relative;
+    left: 50%;
+    margin-top: 20px;
+    transform: translateX(-50%);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 80%;
+    border-top: 1px rgb(186, 178, 178) solid;
+    font-weight: 400;
+    font-size: 13px;
+}
+
+.copyright {
+    color: rgb(130, 130, 130);
+    flex: 1;
+}
+
+.legal-links {
+    flex: 2;
+}
+
+.legal-links ul li {
+    display: inline-block;
+}
+ 
+.legal-link {
+    color: rgb(102, 102, 102);
+    text-decoration: none;
+}
+
+ul li:not(:last-child)::after {
+    content: '|';
+    margin: 0 5px;
+    color: rgb(146, 146, 146);
+}
+
+a {
+    text-decoration: none;
+    color: rgb(146, 146, 146);
+}
+
+a:hover {
+    text-decoration: underline;
+}

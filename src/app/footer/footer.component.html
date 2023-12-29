@@ -1,0 +1,17 @@
+<div class="footer">
+    <div class="copyright">
+        Copyright © 2023 Apple Inc. All rights reserved.
+    </div>
+    <div class="legal-links">
+        <ul>
+            <li *ngFor="let link of legalLinks">
+                <a class="legal-link" routerLink="/">{{ link }}</a>
+            </li>
+        </ul>
+    </div>
+    <div class="country-region">
+        <a routerLink="/">
+            United States
+        </a>
+    </div>
+</div>

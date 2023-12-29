@@ -1,7 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
-import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { CustomersModule } from './customers/customers.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -15,6 +14,9 @@ import { OrdersModule } from './orders/orders.module';
 import { RouterModule } from '@angular/router';
 import { CustomersRoutingModule } from './customers/customers-routing.module';
 import { OrdersRoutingModule } from './orders/orders-routing.module';
+import { HomeModule } from './home/home.module';
+import { NavigationModule } from './navigation/navigation.module';
+import { FooterModule } from './footer/footer.module';
 
 
 @NgModule({
@@ -25,7 +27,6 @@ import { OrdersRoutingModule } from './orders/orders-routing.module';
   imports: [
     BrowserModule,
     RouterModule,
-    AppRoutingModule,
     CustomersModule,
     OrdersModule,
     CustomersRoutingModule,
@@ -34,7 +35,10 @@ import { OrdersRoutingModule } from './orders/orders-routing.module';
     MatTableModule,
     SharedModule,
     FormsModule,
-    CoreModule
+    CoreModule,
+    HomeModule,
+    NavigationModule,
+    FooterModule
   ],
   providers: [AppComponent],
   bootstrap: [AppComponent]
