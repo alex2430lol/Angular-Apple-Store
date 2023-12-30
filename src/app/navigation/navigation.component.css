@@ -35,3 +35,78 @@ li a {
 .whiteIcon {
     color: white;
 }
+
+.shoppingBagDropdown {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: #1d1d1f;
+    z-index: 1;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    padding-left: 200px;
+    padding-top: 40px;
+    padding-bottom: 50px;
+    overflow: hidden;
+
+}
+
+.bagDesc {
+    font-size: 24px;
+    font-weight: 400;
+}
+
+.signInTextContainer {
+    margin-top: 25px;
+}
+
+.signInText {
+    color: rgb(142, 142, 142);
+    font-size: 13px;
+}
+
+.signInText a {
+    display: inline;
+    text-decoration: underline;
+    color: #2997ff;
+    padding: 0;
+    margin: 0;
+    font-size: 13px;
+}
+
+.myProfile {
+    margin-top: 40px;
+    display: flex;
+    align-items: start;
+    flex-direction: column;
+    font-size: 13px;
+}
+
+.myProfileText {
+}
+ 
+
+.myProfile ul {
+    list-style: none;
+    padding: 0;
+}
+
+.myProfile ul li {
+    display: block;
+    text-align: left;
+    margin-bottom: 15px;
+}
+
+.myProfile ul li:first-child {
+    color: rgb(142, 142, 142);
+    margin-bottom: 15px;
+}
+
+.profileIcons {
+    color: rgb(142, 142, 142);
+    margin-right: 15px;
+}
+
+

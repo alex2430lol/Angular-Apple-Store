@@ -1,4 +1,4 @@
-<div class="naviBar">
+<div class="naviBar" #naviBar>
     <ul>
         <li>
             <a routerLink="/Home">
@@ -15,10 +15,46 @@
                 <span class="fa fa-search"></span>
             </a>
         </li>
-        <li class="whiteIcon">
-            <a>
+        <li class="whiteIcon" >
+            <a (click)="toggleShoppingBag()">
                 <span class="fa fa-shopping-bag"></span>
             </a>
+            <!-- [@slideDown]="showShoppingBag ? 'visible' : 'hidden'"  -->
+            <div 
+                #shoppingBagDropdown
+                class="shoppingBagDropdown"
+                *ngIf="showShoppingBag"
+            >
+                <span class="bagDesc">Your Bag is empty.</span>
+                <div class="signInTextContainer">
+                    <span class="signInText">
+                        <a>Sign in</a> to see if you have any saved items
+                    </span>
+                </div>
+                <div class="myProfile">
+                    <ul>
+                        <li class="myProfileText">
+                            My Profile
+                        </li>
+                        <li>
+                            <i class="profileIcons fa fa-book" aria-hidden="true"></i>
+                            Orders
+                        </li>
+                        <li>
+                            <i class="profileIcons fa fa-bookmark-o" aria-hidden="true"></i>
+                            Your Saves
+                        </li>
+                        <li>
+                            <i class="profileIcons fa fa-cog" aria-hidden="true"></i>
+                            Account
+                        </li>
+                        <li>
+                            <i class="profileIcons fa fa-user-circle" aria-hidden="true"></i>
+                            Sign in
+                        </li>
+                    </ul>
+                </div>
+            </div>
         </li>
     </ul>
 </div>
