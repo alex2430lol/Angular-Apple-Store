@@ -1,29 +1,81 @@
-<div class="login-page">
-    <div class="login-container">
-        <label for="userName">
-            UserName:
-        </label>
-        <input id="userName" type="text" [(ngModel)]="userName"/>
+<div class="login-component">
+    <div class="login-container" *ngIf="showLoginBox">
+        <h1 class="SingInTitle">
+            Sign in for faster checkout.
+        </h1>
+        <h2 class="SingInSubTitle">
+            Sign in to Apple Store
+        </h2>
 
-        <label for="password">
-            Password:
-        </label>
-        <input id="password" type="text" [(ngModel)]="password"/>
+        <div class="login-box">
+            <div>
+                <input class="loginInput" id="userName" type="text" [(ngModel)]="userName"
+                    placeholder="Email or Phone Number" />
+            </div>
+            <div>
+                <input class="loginInput" id="password" type="text" [(ngModel)]="password" placeholder="Password" />
+            </div>
+            <button class="loginBtn" (click)="onLoginClicked()">
+                <span>Login</span>
+                <i class="fa fa-arrow-circle-o-right" aria-hidden="true"></i>
+            </button>
+            <div class="remember-me">
+                <label>
+                    <input type="checkbox" [(ngModel)]="isRememberMeChecked">
+                    <span>
+                        Remember Me
+                    </span>
+                </label>
+            </div>
+        </div>
+
+        <div class="register-related-container">
+            <div class="forgot-password">
+                <a routerLink="/Login">Forgot password?</a>
+            </div>
+
+            <div class="register">
+                <span>Don’t have an Apple ID?</span>
+                <a (click)="onCreateYoursClicked()" class="create-yours">
+                    Create yours now.
+                </a>
+            </div>
+        </div>
+
     </div>
 
-    <div class="register-container">
-        <label for="reg_userName">
-            UserName:
-        </label>
-        <input id="reg_userName" type="text" [(ngModel)]="userName"/>
+    <div *ngIf="!showLoginBox" class="register-container">
+        <div class="create-apple-id">
+            <h2>Create Your Apple ID</h2>
 
-        <label for="reg_password">
-            Password:
-        </label>
-        <input id="reg_password" type="text" [(ngModel)]="password"/>
-        <label for="reg_confirmPassword">
-            Confirm Password:
-        </label>
-        <input id="reg_confirmPassword" type="text" [(ngModel)]="confirmPassword"/>
+            <form (ngSubmit)="submitForm()" #appleIdForm="ngForm">
+                <div class="form-group">
+                    <label for="firstName">First Name:</label>
+                    <input type="text" id="firstName" name="firstName" ngModel required>
+                </div>
+
+                <div class="form-group">
+                    <label for="lastName">Last Name:</label>
+                    <input type="text" id="lastName" name="lastName" ngModel required>
+                </div>
+
+                <div class="form-group">
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email" ngModel required>
+                </div>
+
+                <div class="form-group">
+                    <label for="password">Password:</label>
+                    <input type="password" id="password" name="password" ngModel required>
+                </div>
+
+                <div class="form-group">
+                    <label for="confirmPassword">Confirm Password:</label>
+                    <input type="password" id="confirmPassword" name="confirmPassword" ngModel required>
+                </div>
+
+                <button type="submit" [disabled]="!appleIdForm.valid">Create Apple ID</button>
+            </form>
+        </div>
     </div>
 </div>

@@ -1,7 +1,122 @@
-.login-page {
-    text-align: center;
+.login-component {
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .login-container {
+    width: 1000px;
+    text-align: center;
+}
 
+.SingInTitle {
+    padding-top: 20px;
+    font-size: 40px;
+    text-align: left;
+    font-weight: 500;
+    color: rgb(29, 29, 31);
+}
+
+.SingInSubTitle {
+    font-weight: 400;
+    margin-top: 90px;
+    color: rgb(73, 73, 73);
+}
+
+.login-box {
+    margin-top: 50px;
+}
+
+.login-box .loginInput {
+    font-size: 20px;
+    color: rgb(72, 72, 72);
+    border: 1.5px solid rgb(147, 142, 142);
+    border-radius: 10px;
+    padding: 10px;
+    width: 400px;
+    margin-bottom: 10px;
+}
+
+.loginBtn {
+    border: none;
+    margin-top: 10px;
+    font-size: 30px;
+    color: rgb(74, 74, 74);
+}
+
+.loginBtn span {
+    color: #5a5a5a;
+    padding-right: 10px;
+}
+
+.remember-me {
+    margin-top: 100px;
+    color: rgb(74, 74, 74);
+}
+
+.forgot-password {
+    margin-top: 30px;
+}
+
+.forgot-password a {
+    color: #06c;
+    text-decoration: none;
+}
+
+.register-related-container a:hover {
+    text-decoration: underline;
+}
+
+.create-yours {
+    color: #06c;
+}
+
+
+
+
+.register-container {
+    margin-top: 200px;
+}
+
+.register {
+    margin-top: 20px;
+}
+
+register-container .create-apple-id {
+    max-width: 400px;
+    margin: auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+register-container .form-group {
+    margin-bottom: 15px;
+}
+
+register-container label {
+    display: block;
+    font-weight: bold;
+}
+
+register-container input {
+    width: 100%;
+    padding: 8px;
+    margin-top: 5px;
+    box-sizing: border-box;
+}
+
+register-container button {
+    background-color: #0070c9;
+    color: #fff;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+register-container button:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
 }

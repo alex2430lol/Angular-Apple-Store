@@ -4,6 +4,7 @@
     width: 100%;
     background-color: #1d1d1f;
     text-align: center;
+    z-index: 999;
 }
 
 .navi-icons {
@@ -21,7 +22,7 @@ li {
     display: inline-block;
 }
 
-li a {
+.naviItems {
     display: block;
     color: white;
     text-align: center;
@@ -63,7 +64,7 @@ li a {
 }
 
 .signInText {
-    color: rgb(142, 142, 142);
+    color: rgb(76, 149, 247);
     font-size: 13px;
 }
 
@@ -83,10 +84,18 @@ li a {
     flex-direction: column;
     font-size: 13px;
 }
-
-.myProfileText {
+.profileItems a {
+    color: rgb(255, 255, 255);
+    text-decoration: none;
 }
- 
+
+.profileItems a:hover i {
+    color: rgb(255, 255, 255);
+}
+
+.profileItems span {
+    text-align: left;
+}
 
 .myProfile ul {
     list-style: none;
@@ -107,6 +116,7 @@ li a {
 .profileIcons {
     color: rgb(142, 142, 142);
     margin-right: 15px;
+    width: 13px;
 }
 
 

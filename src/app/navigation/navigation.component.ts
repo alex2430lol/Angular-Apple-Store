@@ -1,18 +1,9 @@
-import { state, trigger, style, animate, transition } from '@angular/animations';
 import { Component, ElementRef, HostListener, ViewChild } from '@angular/core';
 
 @Component({
   selector: 'app-navigation',
   templateUrl: './navigation.component.html',
-  styleUrl: './navigation.component.css',
-  animations: [
-    trigger('slideDown', [
-      state('void', style({ height: '0', opacity: '0' })),
-      state('*', style({ height: '*', opacity: '1' })),
-      transition('void => *', animate('300ms ease-out')),
-      transition('* => void', animate('300ms ease-in'))
-    ])
-  ]
+  styleUrl: './navigation.component.css'
 })
 export class NavigationComponent {
   naviItems: string[] = [
@@ -33,13 +24,20 @@ export class NavigationComponent {
   @ViewChild('shoppingBagDropdown') shoppingBagDropdown!: ElementRef;
   @ViewChild('naviBar') naviBar!: ElementRef;
 
+
+  hideShoppingBagDropDown(event: Event): void {
+    if (event.target instanceof HTMLAnchorElement) {
+      this.showShoppingBag = false;
+    }
+  }
+
   @HostListener('document:click', ['$event'])
   onClick(event: Event) {
     const clickedElement = event.target as HTMLElement;
 
     // Check if the click is outside the dropdown or the navigation bar
-    if (!this.isDescendant(this.shoppingBagDropdown.nativeElement, clickedElement) &&
-      !this.isDescendant(this.naviBar.nativeElement, clickedElement)) {
+    if (!this.isDescendant(this.shoppingBagDropdown?.nativeElement, clickedElement) &&
+      !this.isDescendant(this.naviBar?.nativeElement, clickedElement)) {
       this.showShoppingBag = false;
     }
   }

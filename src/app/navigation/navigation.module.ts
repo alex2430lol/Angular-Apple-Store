@@ -6,10 +6,13 @@ import { OrdersComponent } from '../orders/orders.component';
 import { NotExistComponent } from '../not-exist/not-exist.component';
 import { HomeComponent } from '../home/home.component';
 import { RouterModule, Routes } from '@angular/router';
+import { LoginComponent } from '../login/login.component';
+import { LoginModule } from '../login/login.module';
 
 
 const routes: Routes = [
   { path: 'Home', component: HomeComponent },
+  { path: 'Login', component: LoginComponent},
   { path: 'Customers', component: CustomersComponent },
   { path: 'Orders/:id', component: OrdersComponent },
   { path: '', pathMatch: 'full', component: HomeComponent},
@@ -23,7 +26,8 @@ const routes: Routes = [
   imports: [
     RouterModule.forRoot(routes),
     CommonModule,
-    RouterModule
+    RouterModule,
+    LoginModule
   ],
   exports: [NavigationComponent]
 })
