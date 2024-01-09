@@ -1,13 +1,13 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { NavigationComponent } from './navigation.component';
-import { CustomersComponent } from '../customers/customers.component';
-import { OrdersComponent } from '../orders/orders.component';
-import { NotExistComponent } from '../not-exist/not-exist.component';
-import { HomeComponent } from '../home/home.component';
+import { CustomersComponent } from '../../../modules/customers/customers.component';
+import { OrdersComponent } from '../../../modules/orders/orders.component';
+import { NotExistComponent } from '../../components/not-exist/not-exist.component';
+import { HomeComponent } from '../../../modules/home/home.component';
 import { RouterModule, Routes } from '@angular/router';
-import { LoginComponent } from '../login/login.component';
-import { LoginModule } from '../login/login.module';
+import { LoginComponent } from '../../../modules/login/login.component';
+import { LoginModule } from '../../../modules/login/login.module';
 
 
 const routes: Routes = [

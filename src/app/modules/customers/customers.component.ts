@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { ICustomer } from '../shared/interfaces';
-import { DataService } from '../core/data.service';
+import { ICustomer } from '../../shared/interfaces';
+import { DataService } from '../../core/data.service';
 import { Router } from '@angular/router';
 
 @Component({
