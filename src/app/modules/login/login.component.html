@@ -8,17 +8,43 @@
         </h2>
 
         <div class="login-box">
-            <div>
-                <input class="loginInput" id="userName" type="text" [(ngModel)]="userName"
-                    placeholder="Email or Phone Number" />
-            </div>
-            <div>
-                <input class="loginInput" id="password" type="text" [(ngModel)]="password" placeholder="Password" />
-            </div>
-            <button class="loginBtn" (click)="onLoginClicked()">
-                <span>Login</span>
-                <i class="fa fa-arrow-circle-o-right" aria-hidden="true"></i>
-            </button>
+            <form #loginForm="ngForm" (ngSubmit)="onLoginClicked()">
+                <div class="loginInputContainer">
+                    <input 
+                        class="loginInput" 
+                        id="userName" 
+                        type="text" 
+                        name="userName"
+                        [(ngModel)]="userName"
+                        placeholder="Email or Phone Number"
+                        required
+                    />
+                </div>
+                <div class="loginInputContainer">
+                    <input 
+                        class="loginInput" 
+                        id="password" 
+                        name="password"
+                        [type]="showPassword ? 'text' : 'password'" 
+                        [(ngModel)]="password" 
+                        placeholder="Password"
+                        required
+                    />
+                    <button class="showPasswordBtn" (click)="toggleShowPassword()">
+                        {{ showPassword ? 'Hide' : 'Show'}}
+                    </button>
+                </div>
+                <div class="loginBtnContainer">
+                    <button 
+                        id="loginBtn"
+                        class="loginBtn" 
+                        type="submit"
+                        [disabled]="!loginForm.form.valid"
+                    >
+                        <i class="fa fa-arrow-circle-o-right" aria-hidden="true"></i>
+                    </button>
+                </div>
+            </form>
             <div class="remember-me">
                 <label>
                     <input type="checkbox" [(ngModel)]="isRememberMeChecked">

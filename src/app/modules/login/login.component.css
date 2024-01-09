@@ -27,14 +27,43 @@
     margin-top: 50px;
 }
 
-.login-box .loginInput {
+.loginInputContainer {
+    left: 50%;
+    transform: translateX(-50%);
+    position: relative;
+    width: 400px;
+}
+
+.loginInputContainer:first-child {
+    margin-bottom: 20px;
+}
+
+.loginInput {
     font-size: 20px;
-    color: rgb(72, 72, 72);
-    border: 1.5px solid rgb(147, 142, 142);
+    color: rgb(95, 95, 95);
+    border: 1.5px solid rgb(142, 142, 142);
     border-radius: 10px;
     padding: 10px;
     width: 400px;
-    margin-bottom: 10px;
+}
+.showPasswordBtn {
+    right: -10px;
+    top: 0;
+    position: absolute;
+    font-size: 15px;
+    border: none;
+    height: 100%;
+    background-color: transparent;
+    color: rgb(147, 142, 142);
+    cursor: pointer;
+}
+
+.showPasswordBtn:hover {
+    color: #0070c9;
+}
+
+.loginBtnContainer {
+    margin-top: 30px;
 }
 
 .loginBtn {
@@ -42,11 +71,17 @@
     margin-top: 10px;
     font-size: 30px;
     color: rgb(74, 74, 74);
+    background-color: transparent;
+    cursor: pointer;
 }
 
-.loginBtn span {
-    color: #5a5a5a;
-    padding-right: 10px;
+button:disabled {
+    color: #ccc;
+    cursor: auto;
+}
+
+.loginBtn:hover:not([disabled]) {
+    color: #06c;
 }
 
 .remember-me {
